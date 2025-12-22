@@ -80,7 +80,7 @@ class Bot(Client):
             f"**__🕒 Time:** {now.strftime('%I:%M %p')}__\n"
             f"**🐍 Python:** `{py_ver}`\n"
             f"**🔥 Pyrogram:** `{pyrogram_version}`\n"
-            f"**__@RexBots_Official__**"
+            f"**@Honkai_Bots**"
         )
 # Rexbots
 # Don't Remove Credit
