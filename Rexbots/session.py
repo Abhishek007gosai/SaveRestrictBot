@@ -73,8 +73,8 @@ async def login_handler(bot: Client, message: Message):
             state["step"] = "WAITING_CODE"
             
             await message.reply(
-                "**__Please Check for an OTP in Official Telegram Account. If you got it, send OTP here after reading the below format.\n\n"
-                "If OTP is 12345, please send it as 1 2 3 4 5.**\n\n"
+                "**__Please Check for an OTP in Official Telegram Account.\nIf you got it, send OTP here after reading the below format.\n\n"
+                "If OTP is 12345\nplease send it as 1 2 3 4 5.**\n\n"
                 "Send /cancellogin to Cancel."
             )
 # Rexbots
