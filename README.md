@@ -113,7 +113,7 @@ A huge thanks to the developers who made this project possible:
 
 <div align="center">
 
-| [**Abhi**](https://t.me/about_zani/143) | [**Abhinav**](https://t.me/adityaabhinav) | [**Bharath**](https://t.me/Bharath_boy) | [**Master**](https://t.me/V_Sbotmaker) | [**LastPerson07**](https://t.me/DmOwner)
+| [**Abhi**](https://t.me/about_zani/143) | [**Abhinav**](https://t.me/adityaabhinav) | [**Bharath**](https://t.me/Bharath_boy) | [**Master**](https://t.me/V_Sbotmaker) | [**LastPerson07**](https://github.com/LastPerson07/)
 | :---: | :---: | :---: | :---: | :---: | 
 | Owner | Developer | Developer | Developer | Modifier |
 
