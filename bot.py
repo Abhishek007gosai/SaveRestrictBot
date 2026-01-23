@@ -1,18 +1,29 @@
+# ========================================================
 # Rexbots
 # Don't Remove Credit
 # Telegram Channel @RexBots_Official
+#
+# Maintained & Updated by: Dhanpal Sharma
+# GitHub: https://github.com/LastPerson07
+# ========================================================
 
 import asyncio
 import datetime
 import sys
-import platform
 from datetime import timezone, timedelta
-import aiohttp
+
+# ❌ BUGGED IMPORT (self-ping keep alive causes issues on Render)
+# import aiohttp   # BUG: Not needed with port-binding keep alive
+
 from motor.motor_asyncio import AsyncIOMotorClient
 from pyrogram import Client, filters, __version__ as pyrogram_version
 from pyrogram.types import Message
-from config import API_ID, API_HASH, BOT_TOKEN, LOG_CHANNEL, KEEP_ALIVE_URL, DB_URI, DB_NAME
+
+from config import API_ID, API_HASH, BOT_TOKEN, LOG_CHANNEL, DB_URI, DB_NAME
 from logger import LOGGER
+
+# ✅ NEW: Proper keep-alive SERVER (port binding)
+from keep_alive import keep_alive
 
 logger = LOGGER(__name__)
 
@@ -23,20 +34,6 @@ IST = timezone(timedelta(hours=5, minutes=30))
 mongo_client = AsyncIOMotorClient(DB_URI)
 db = mongo_client[DB_NAME]
 users_col = db["logged_users"]
-
-
-async def keep_alive():
-    """Send a request every 100 seconds to keep the bot alive."""
-    async with aiohttp.ClientSession() as session:
-        while True:
-            if KEEP_ALIVE_URL:
-                try:
-                    await session.get(KEEP_ALIVE_URL)
-                    logger.info("Sent keep-alive request.")
-                except Exception as e:
-                    logger.error(f"Keep-alive request failed: {e}")
-            await asyncio.sleep(100)
-
 
 class Bot(Client):
     def __init__(self):
@@ -54,14 +51,15 @@ class Bot(Client):
         await super().start()
         me = await self.get_me()
 
+        # ✅ START KEEP-ALIVE SERVER (FIXED)
+        # Opens HTTP port required by Render
+        keep_alive()
+
         # 🔍 Debug MongoDB connection
         logger.info(f"Connected to MongoDB DB: {db.name}")
         logger.info(f"Using Collection: {users_col.name}")
         count = await users_col.count_documents({})
         logger.info(f"Current Stored Users: {count}")
-
-        # Start keep-alive
-        self.keep_alive_task = asyncio.create_task(keep_alive())
 
         # Cache Log Channel Peer
         try:
@@ -72,19 +70,16 @@ class Bot(Client):
         # Bot startup log
         now = datetime.datetime.now(IST)
         py_ver = f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
-        
+
         text = (
             f"**__🤖 Bot Deployed / Restarted ♻️__**\n"
             f"**__- @{me.username}__**\n\n"
             f"**__📅 Date:** {now.strftime('%d-%b-%Y')}__\n"
             f"**__🕒 Time:** {now.strftime('%I:%M %p')}__\n"
             f"**🐍 Python:** `{py_ver}`\n"
-            f"**🔥 Pyrogram:** `{pyrogram_version}`\n"
+            f"**🔥 Pyrogram:** `{pyrogram_version}`\n\n"
             f"**__@RexBots_Official__**"
         )
-# Rexbots
-# Don't Remove Credit
-# Telegram Channel @RexBots_Official
 
         try:
             await self.send_message(LOG_CHANNEL, text)
@@ -98,13 +93,8 @@ class Bot(Client):
     async def stop(self, *args):
         me = await self.get_me()
 
-        # Stop keep-alive loop
-        if self.keep_alive_task:
-            self.keep_alive_task.cancel()
-            try:
-                await self.keep_alive_task
-            except asyncio.CancelledError:
-                pass
+        # ℹ️ No keep-alive shutdown needed
+        # Flask runs in daemon thread and exits safely
 
         try:
             await self.send_message(LOG_CHANNEL, f"❌ Bot @{me.username} Stopped")
@@ -118,7 +108,9 @@ class Bot(Client):
 BotInstance = Bot()
 
 
+# ========================================================
 # ✅ User Logging Handler (Persistent MongoDB)
+# ========================================================
 @BotInstance.on_message(filters.private & filters.incoming, group=-1)
 async def new_user_log(bot: Client, message: Message):
     user = message.from_user
@@ -127,7 +119,6 @@ async def new_user_log(bot: Client, message: Message):
 
     now = datetime.datetime.now(IST)
 
-    # ✅ Use UPSERT to avoid duplicate registration
     result = await users_col.update_one(
         {"user_id": user.id},
         {"$setOnInsert": {
@@ -139,7 +130,6 @@ async def new_user_log(bot: Client, message: Message):
         upsert=True
     )
 
-    # Log only when it's a *new* user
     if result.upserted_id:
         text = (
             f"**#NewUser 👤**\n"
@@ -154,13 +144,15 @@ async def new_user_log(bot: Client, message: Message):
         except Exception as e:
             logger.error(f"New user log failed: {e}")
 
+
 BotInstance.run()
 
 
-# Rexbots
-# Don't Remove Credit 🥺
-# Telegram Channel @RexBots_Official
-
+# ========================================================
 # Rexbots
 # Don't Remove Credit
 # Telegram Channel @RexBots_Official
+#
+# Updated & Managed by:
+# Dhanpal Sharma | https://github.com/LastPerson07
+# ========================================================
