@@ -19,11 +19,11 @@ from database.db import db
 import math
 from logger import LOGGER
 logger = LOGGER(__name__)
-SUBSCRIPTION = os.environ.get('SUBSCRIPTION', 'https://graph.org/file/242b7f1b52743938d81f1.jpg')
+SUBSCRIPTION = os.environ.get('SUBSCRIPTION', 'https://files.catbox.moe/hwxo44.jpg')
 FREE_LIMIT_SIZE = 2 * 1024 * 1024 * 1024
 FREE_LIMIT_DAILY = 10
-UPI_ID = os.environ.get("UPI_ID", "your_upi@oksbi")
-QR_CODE = os.environ.get("QR_CODE", "https://graph.org/file/242b7f1b52743938d81f1.jpg")
+UPI_ID = os.environ.get("UPI_ID", "NotAvilable")
+QR_CODE = os.environ.get("QR_CODE", "https://files.catbox.moe/hwxo44.jpg")
 REACTIONS = [
     "👍", "❤️", "🔥", "🥰", "👏", "😁", "🤔", "🤯", "😱", "🤬",
     "😢", "🎉", "🤩", "🤮", "💩", "🙏", "👌", "🕊", "🤡", "🥱",
@@ -36,9 +36,9 @@ REACTIONS = [
 ]
 
 
-dev_text = "👨‍💻 Mind Behind This Bot:\n• @DmOwner\n• @akaza7902"
+dev_text = "Mind Behind This Bot @Honkai_Bots"
 expected_dev_hash = "b9e63b7578bdec13f3cb3162fe5f5e93dccaba3bfd5c8ddacbb90ffdcdcce402"
-channels_text = "📢 Official Channels:\n• @ReX_update\n• @THEUPDATEDGUYS\n\nStay updated for new features!"
+channels_text = "Official Channel @Honkai_Bots\nStay updated for new features!"
 expected_channels_hash = "e19212e571bd0f6626450dd790029d392c0748c554d4b386a0c0752f4148d37d"
 
 if (
@@ -49,16 +49,10 @@ if (
 
 class script(object):
    
-    START_TXT = """<b>👋 Hello {},</b>
-<b>🤖 I am <a href=https://t.me/{}>{}</a></b>
-<i>Your Professional Restricted Content Saver Bot.</i>
-<blockquote><b>🚀 System Status: 🟢 Online</b>
-<b>⚡ Performance: 10x High-Speed Processing</b>
-<b>🔐 Security: End-to-End Encrypted</b>
-<b>📊 Uptime: 99.9% Guaranteed</b></blockquote>
-<b>👇 Select an Option Below to Get Started:</b>
-"""
-    HELP_TXT = """<b>📚 Comprehensive Help & User Guide</b>
+    START_TXT = """<b><blockquote> Hello {} I am <a href=https://t.me/{}>{}</a> Your Professional Restricted Content Saver Bot System Status Online Performance 10x High-Speed Processing Security End-to-End Encrypted</blockquote>
+Select an Option Below to Get Started</b>"""
+    
+    HELP_TXT = """<b>Comprehensive Help & User Guide</b>
 <blockquote><b>1️⃣ Public Channels (No Login Required)</b></blockquote>
 • Forward or send the post link directly.
 • Compatible with any public channel or group.
@@ -77,34 +71,17 @@ class script(object):
 • Unlimited Downloads & No Restrictions.
 • Priority Support & Advanced Features.
 """
-    ABOUT_TXT = """<b>ℹ️ About This Bot</b>
-<blockquote><b>╭────[ 🧩 Technical Stack ]────⍟</b>
-<b>├⍟ 🤖 Bot Name : <a href=http://t.me/THEUPDATEDGUYS_Bot>Save Content</a></b>
-<b>├⍟ 👨‍💻 Developer : <a href=https://t.me/DmOwner>Ⓜ️ark X cantarella</a></b>
-<b>├⍟ 📚 Library : <a href='https://docs.pyrogram.org/'>Pyrogram Async</a></b>
-<b>├⍟ 🐍 Language : <a href='https://www.python.org/'>Python 3.11+</a></b>
-<b>├⍟ 🗄 Database : <a href='https://www.mongodb.com/'>MongoDB Atlas Cluster</a></b>
-<b>├⍟ 📡 Hosting : Dedicated High-Speed VPS</b>
-<b>╰───────────────⍟</b></blockquote>
-"""
-    PREMIUM_TEXT = """<b>💎 Premium Membership Plans</b>
-<b>Unlock Unlimited Access & Advanced Features!</b>
-<blockquote><b>✨ Key Benefits:</b>
-<b>♾️ Unlimited Daily Downloads</b>
-<b>📂 Support for 4GB+ File Sizes</b>
-<b>⚡ Instant Processing (Zero Delay)</b>
-<b>🖼 Customizable Thumbnails</b>
-<b>📝 Personalized Captions</b>
-<b>🛂 24/7 Priority Support</b></blockquote>
-<blockquote><b>💳 Pricing Options:</b></blockquote>
-• <b>1 Month Plan:</b> ₹50 / $1 (Billed Monthly)
-• <b>3 Month Plan:</b> ₹120 / $2.5 (Save 20%)
-• <b>Lifetime Access:</b> ₹200 / $4 (One-Time Payment)
-<blockquote><b>👇 Secure Payment:</b></blockquote>
-<b>💸 UPI ID:</b> <code>{}</code>
-<b>📸 QR Code:</b> <a href='{}'>Scan to Pay</a>
-<i>After Payment: Send Screenshot to Admin for Instant Activation.</i>
-"""
+    ABOUT_TXT = """<b>About This Bot</b><blockquote>Developer <a href='https://t.me/Honkai_Bots'>Nexus</a>\nLibrary <a href='https://docs.pyrogram.org'/>Pyrogram Async</a>\nLanguage <a href='https://www.python.org/'>Python 3.11+</a>\nDatabase <a href='https://www.mongodb.com'/>MongoDB</a></blockquote>"""
+    
+    PREMIUM_TEXT = """<b><blockquote>sʜᴀʀᴇ ʙᴏᴛ ʟɪɴᴋ ᴛᴏ ʏᴏᴜʀ ғʀɪᴇɴᴅs ᴀɴᴅ ɢᴇᴛ ᴘʀᴇᴍɪᴜᴍ ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs</blockquote>
+- ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs -
+- 05 sʜᴀʀᴇ - 1 ᴡᴇᴇᴋ
+- 10 sʜᴀʀᴇ - 1 ᴍᴏɴᴛʜs
+- 20 sʜᴀʀᴇ - 3 ᴍᴏɴᴛʜs
+- 30 sʜᴀʀᴇ - 6 ᴍᴏɴᴛʜs
+- 40 sʜᴀʀᴇ - 1 year
+<blockquote>‼️ᴀғᴛᴇʀ sʜᴀʀɪɴɢ ᴀ ʀᴇғᴇʀᴇɴᴄᴇ ʟɪɴᴋ ᴘʟᴇᴀsᴇ ɢɪᴠᴇ ᴜs sᴏᴍᴇ ᴛɪᴍᴇ ᴛᴏ ᴀᴅᴅ ʏᴏᴜ ɪɴ ᴛʜᴇ ᴘʀᴇᴍɪᴜᴍ</blockquote>
+✨ɪғ ʏᴏᴜ ᴡᴀɴᴛ ʏᴏᴜ ᴄᴀɴ ᴅᴏɴᴀᴛᴇ ᴀɴʏ ᴀᴍᴏᴜɴᴛ @EternalsHelplineBot</b>"""
     PROGRESS_BAR = """\
 <b>⚡ Processing Task...</b>
 <blockquote>
@@ -115,11 +92,11 @@ class script(object):
 <b>⏳ ETA:</b> <code>{eta}</code>
 </blockquote>
 """
-    CAPTION = """<b><a href="https://t.me/THEUPDATEDGUYS"></a></b>\n\n<b>⚜️ Powered By : <a href="https://t.me/THEUPDATEDGUYS">THE UPDATED GUYS 😎</a></b>"""
+    CAPTION = """<b><a href="https://t.me/Honkai_Bots">Nexus</a></b>"""
     LIMIT_REACHED = """<b>🚫 Daily Limit Exceeded</b>
 <b>Your 10 free saves for today have been used.</b>
 <i>Quota resets automatically after 24 hours from first download.</i>
-<blockquote><b>🔓 Upgrade to Premium for Unlimited Access!</b></blockquote>
+<blockquote><b>Upgrade to Premium for Unlimited Access!</b></blockquote>
 Remove all restrictions and enjoy seamless downloading.
 """
     SIZE_LIMIT = """<b>⚠️ File Size Exceeded</b>
@@ -239,19 +216,19 @@ async def send_start(client: Client, message: Message):
         photo_url = response.json()["url"]
     except Exception as e:
         logger.error(f"Failed to fetch image from API: {e}")
-        photo_url = "https://i.postimg.cc/kX9tjGXP/16.png"
+        photo_url = "https://files.catbox.moe/hwxo44.jpg"
     buttons = [
         [
-            InlineKeyboardButton("💎 Buy Premium", callback_data="buy_premium"),
-            InlineKeyboardButton("🆘 Help & Guide", callback_data="help_btn")
+            InlineKeyboardButton("ᴘʀᴇᴍɪᴜᴍ", callback_data="buy_premium"),
+            InlineKeyboardButton("ʜᴇʟᴘ", callback_data="help_btn")
         ],
         [
-            InlineKeyboardButton("⚙️ Settings Panel", callback_data="settings_btn"),
-            InlineKeyboardButton("ℹ️ About Bot", callback_data="about_btn")
+            InlineKeyboardButton("sᴇᴛᴛɪɴɢs", callback_data="settings_btn"),
+            InlineKeyboardButton("ᴀʙᴏᴜᴛ ʙᴏᴛ", callback_data="about_btn")
         ],
         [
-            InlineKeyboardButton('📢 Channels', callback_data="channels_info"),
-            InlineKeyboardButton('👨‍💻 Developers', callback_data="dev_info")
+            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', callback_data="channels_info"),
+            InlineKeyboardButton('ᴅᴇᴠᴇʟᴏᴘᴇʀs', callback_data="dev_info")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -276,7 +253,7 @@ async def send_help(client: Client, message: Message):
 @Client.on_message(filters.command(["plan", "myplan", "premium"]))
 async def send_plan(client: Client, message: Message):
     buttons = [
-        [InlineKeyboardButton("📸 Send Payment Proof", url="https://t.me/DmOwner")],
+        [InlineKeyboardButton("sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ", url="https://t.me/Honkai_Bots")],
         [InlineKeyboardButton("❌ Close Menu", callback_data="close_btn")]
     ]
     await client.send_photo(
@@ -299,11 +276,11 @@ async def settings_panel(client, callback_query):
     badge = "💎 Premium Member" if is_premium else "👤 Standard User"
    
     buttons = InlineKeyboardMarkup([
-        [InlineKeyboardButton("📜 Command List", callback_data="cmd_list_btn")],
-        [InlineKeyboardButton("📊 Usage Stats", callback_data="user_stats_btn")],
-        [InlineKeyboardButton("🗑 Dump Chat Settings", callback_data="dump_chat_btn")],
-        [InlineKeyboardButton("🖼 Manage Thumbnail", callback_data="thumb_btn")],
-        [InlineKeyboardButton("📝 Edit Caption", callback_data="caption_btn")],
+        [InlineKeyboardButton("Command List", callback_data="cmd_list_btn")],
+        [InlineKeyboardButton("Usage Stats", callback_data="user_stats_btn")],
+        [InlineKeyboardButton("Dump Chat Settings", callback_data="dump_chat_btn")],
+        [InlineKeyboardButton("Manage Thumbnail", callback_data="thumb_btn")],
+        [InlineKeyboardButton("Edit Caption", callback_data="caption_btn")],
         [InlineKeyboardButton("⬅️ Return to Home", callback_data="start_btn")]
     ])
    
@@ -508,7 +485,7 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
         await settings_panel(client, callback_query)
     elif data == "buy_premium":
         buttons = [
-            [InlineKeyboardButton("📸 Send Payment Proof", url="https://t.me/DmOwner")],
+            [InlineKeyboardButton("sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ", url="https://t.me/Honkai_Bots")],
             [InlineKeyboardButton("⬅️ Back to Home", callback_data="start_btn")]
         ]
         await client.edit_message_media(
@@ -549,19 +526,19 @@ async def button_callbacks(client: Client, callback_query: CallbackQuery):
             photo_url = response.json()["url"]
         except Exception as e:
             logger.error(f"Failed to fetch image from API: {e}")
-            photo_url = "https://i.postimg.cc/cC7txyhz/15.png"
+            photo_url = "https://files.catbox.moe/hwxo44.jpg"
         buttons = [
             [
-                InlineKeyboardButton("💎 Buy Premium", callback_data="buy_premium"),
-                InlineKeyboardButton("🆘 Help & Guide", callback_data="help_btn")
+                InlineKeyboardButton("ᴘʀᴇᴍɪᴜᴍ", callback_data="buy_premium"),
+                InlineKeyboardButton("ʜᴇʟᴘ", callback_data="help_btn")
             ],
             [
-                InlineKeyboardButton("⚙️ Settings Panel", callback_data="settings_btn"),
-                InlineKeyboardButton("ℹ️ About Bot", callback_data="about_btn")
+                InlineKeyboardButton("sᴇᴛᴛɪɴɢs", callback_data="settings_btn"),
+                InlineKeyboardButton("ᴀʙᴏᴜᴛ ʙᴏᴛ", callback_data="about_btn")
             ],
             [
-                InlineKeyboardButton('📢 Channels', callback_data="channels_info"),
-                InlineKeyboardButton('👨‍💻 Developers', callback_data="dev_info")
+                InlineKeyboardButton('ᴄʜᴀɴɴᴇʟs', callback_data="channels_info"),
+                InlineKeyboardButton('ᴅᴇᴠᴇʟᴏᴘᴇʀs', callback_data="dev_info")
             ]
         ]
         await client.edit_message_media(
