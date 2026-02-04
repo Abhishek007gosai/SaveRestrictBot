@@ -82,7 +82,7 @@ Select an Option Below to Get Started</b>"""
 - 40 sʜᴀʀᴇ - 1 year
 <blockquote>‼️ᴀғᴛᴇʀ sʜᴀʀɪɴɢ ᴀ ʀᴇғᴇʀᴇɴᴄᴇ ʟɪɴᴋ ᴘʟᴇᴀsᴇ ɢɪᴠᴇ ᴜs sᴏᴍᴇ ᴛɪᴍᴇ ᴛᴏ ᴀᴅᴅ ʏᴏᴜ ɪɴ ᴛʜᴇ ᴘʀᴇᴍɪᴜᴍ</blockquote>
 ✨ɪғ ʏᴏᴜ ᴡᴀɴᴛ ʏᴏᴜ ᴄᴀɴ ᴅᴏɴᴀᴛᴇ ᴀɴʏ ᴀᴍᴏᴜɴᴛ @EternalsHelplineBot</b>"""
-    PROGRESS_BAR = """\
+    PROGRESS_BAR = """
 <b>⚡ Processing Task...</b>
 <blockquote>
 <b>Progress: {bar} {percentage:.1f}%</b>
@@ -92,7 +92,8 @@ Select an Option Below to Get Started</b>"""
 <b>⏳ ETA:</b> <code>{eta}</code>
 </blockquote>
 """
-    CAPTION = """<b><a href="https://t.me/Honkai_Bots">Nexus</a></b>"""
+    CAPTION = """<b>@Honkai_Bots</b>"""
+    
     LIMIT_REACHED = """<b>🚫 Daily Limit Exceeded</b>
 <b>Your 10 free saves for today have been used.</b>
 <i>Quota resets automatically after 24 hours from first download.</i>
