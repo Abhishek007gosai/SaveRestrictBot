@@ -48,9 +48,15 @@ if (
     raise Exception("Tampered developer info detected! Bot will not start. Fuck the code - crashing now.")
 
 class script(object):
-    START_TXT = """<b>Hello {} I am <a href=https://t.me/{}>{}</a>
-    <blockquote>Your Professional Restricted Content Saver Bot System Status Online Performance 10x High-Speed Processing Security End-to-End Encrypted</blockquote>
-Select an Option Below to Get Started</b>"""  
+   
+    START_TXT = """<b>Hello {} I am <a href=https://t.me/{}>{}</a></b>
+<i>Your Professional Restricted Content Saver Bot.</i>
+<blockquote><b>System Status: 🟢 Online</b>
+<b>Performance: 10x High-Speed Processing</b>
+<b>Security: End-to-End Encrypted</b>
+<b>Uptime: 99.9% Guaranteed</b></blockquote>
+<b>Select an Option Below to Get Started:</b>
+"""  
     HELP_TXT = """<b>Comprehensive Help & User Guide</b>
 <blockquote><b>1️⃣ Public Channels (No Login Required)</b></blockquote>
 • Forward or send the post link directly.
