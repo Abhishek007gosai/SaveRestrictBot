@@ -16,12 +16,12 @@ async def settings_menu(client: Client, message: Message):
     is_premium = await db.check_premium(user_id)
     premium_badge = "💎 Premium Member" if is_premium else "👤 Free User"
     buttons = InlineKeyboardMarkup([
-        [InlineKeyboardButton("📜 Commands List", callback_data="cmd_list_btn")],
-        [InlineKeyboardButton("📊 My Usage Stats", callback_data="user_stats_btn")],
-        [InlineKeyboardButton("🗑 Dump Chat", callback_data="dump_chat_btn")],
+        [InlineKeyboardButton("Commands List", callback_data="cmd_list_btn")],
+        [InlineKeyboardButton("My Usage Stats", callback_data="user_stats_btn")],
+        [InlineKeyboardButton("Dump Chat", callback_data="dump_chat_btn")],
         [
-            InlineKeyboardButton("🖼 Thumbnail", callback_data="thumb_btn"),
-            InlineKeyboardButton("📝 Caption", callback_data="caption_btn")
+            InlineKeyboardButton("Thumbnail", callback_data="thumb_btn"),
+            InlineKeyboardButton("Caption", callback_data="caption_btn")
         ],
         [InlineKeyboardButton("❌ Close Menu", callback_data="close_btn")]
     ])
@@ -187,12 +187,12 @@ async def settings_callbacks(client: Client, callback_query: CallbackQuery):
         premium_badge = "💎 Premium Member" if is_premium else "👤 Free User"
        
         buttons = InlineKeyboardMarkup([
-            [InlineKeyboardButton("📜 Commands List", callback_data="cmd_list_btn")],
-            [InlineKeyboardButton("📊 My Usage Stats", callback_data="user_stats_btn")],
-            [InlineKeyboardButton("🗑 Dump Chat", callback_data="dump_chat_btn")],
+            [InlineKeyboardButton("Commands List", callback_data="cmd_list_btn")],
+            [InlineKeyboardButton("My Usage Stats", callback_data="user_stats_btn")],
+            [InlineKeyboardButton("Dump Chat", callback_data="dump_chat_btn")],
             [
-                InlineKeyboardButton("🖼 Thumbnail", callback_data="thumb_btn"),
-                InlineKeyboardButton("📝 Caption", callback_data="caption_btn")
+                InlineKeyboardButton("Thumbnail", callback_data="thumb_btn"),
+                InlineKeyboardButton("Caption", callback_data="caption_btn")
             ],
             [InlineKeyboardButton("❌ Close Menu", callback_data="close_btn")]
         ])
