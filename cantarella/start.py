@@ -49,7 +49,7 @@ if (
 
 class script(object):
    
-    START_TXT = """<b><blockquote> Hello {} I am <a href=https://t.me/{}>{}</a> Your Professional Restricted Content Saver Bot System Status Online Performance 10x High-Speed Processing Security End-to-End Encrypted</blockquote>
+START_TXT = """<b><blockquote> Hello {} I am <a href=https://t.me/{}>{}</a> Your Professional Restricted Content Saver Bot System Status Online Performance 10x High-Speed Processing Security End-to-End Encrypted</blockquote>
 Select an Option Below to Get Started</b>"""
     
     HELP_TXT = """<b>Comprehensive Help & User Guide</b>
@@ -71,7 +71,7 @@ Select an Option Below to Get Started</b>"""
 • Unlimited Downloads & No Restrictions.
 • Priority Support & Advanced Features.
 """
-    ABOUT_TXT = """<b>About This Bot</b><blockquote>Developer <a href='https://t.me/Honkai_Bots'>Nexus</a>\nLibrary <a href='https://docs.pyrogram.org'/>Pyrogram Async</a>\nLanguage <a href='https://www.python.org/'>Python 3.11+</a>\nDatabase <a href='https://www.mongodb.com'/>MongoDB</a></blockquote>"""
+ABOUT_TXT = """<b>About This Bot</b><blockquote>Developer <a href='https://t.me/Honkai_Bots'>Nexus</a>\nLibrary <a href='https://docs.pyrogram.org'/>Pyrogram Async</a>\nLanguage <a href='https://www.python.org/'>Python 3.11+</a>\nDatabase <a href='https://www.mongodb.com'/>MongoDB</a></blockquote>"""
     
     PREMIUM_TEXT = """<b><blockquote>sʜᴀʀᴇ ʙᴏᴛ ʟɪɴᴋ ᴛᴏ ʏᴏᴜʀ ғʀɪᴇɴᴅs ᴀɴᴅ ɢᴇᴛ ᴘʀᴇᴍɪᴜᴍ ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs</blockquote>
 - ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs -
