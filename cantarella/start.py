@@ -49,7 +49,8 @@ if (
 
 class script(object):
    
-    START_TXT = """<b><blockquote> Hello {} I am <a href=https://t.me/{}>{}</a> Your Professional Restricted Content Saver Bot System Status Online Performance 10x High-Speed Processing Security End-to-End Encrypted</blockquote>
+    START_TXT = """<b>Hello {} I am <a href=https://t.me/{}>{}</a>
+    <blockquote>Your Professional Restricted Content Saver Bot System Status Online Performance 10x High-Speed Processing Security End-to-End Encrypted</blockquote>
 Select an Option Below to Get Started</b>"""  
     HELP_TXT = """<b>Comprehensive Help & User Guide</b>
 <blockquote><b>1️⃣ Public Channels (No Login Required)</b></blockquote>
